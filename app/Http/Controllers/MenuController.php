@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\departamento;
+use App\Models\municipio;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Query\Builder;
 
@@ -16,7 +16,7 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $departamentos=departamento::all();
+        $departamentos=municipio::all();
         return view('municipios.menu', ['departamentos' => $departamentos]);
     }
 

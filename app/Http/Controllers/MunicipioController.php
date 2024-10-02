@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\departamento;
+use App\Models\municipio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Query\Builder;
@@ -45,16 +45,16 @@ class MunicipioController extends Controller
      */
     public function store(Request $request)
     {
-       /* $comuna = new departamento();
-        $comuna->comu_nomb=$request->name;
-        $comuna->muni_codi=$request->code;   
-        $comuna->save();
+        $municipio = new municipio();
+        $municipio->muni_nomb=$request->name;
+        $municipio->muni_codi=$request->code;   
+        $municipio->save();
  
-        $comunas = DB::table('tb_comuna')
-        ->join('tb_municipio', 'tb_comuna.muni_codi', '=', 'tb_municipio.muni_codi')
-        ->select('tb_comuna.*',"tb_municipio.muni_nomb")
+        $municipios = DB::table('tb_municipio')
+        ->join('tb_departamento', 'tb_municipio.depa_codi', '=', 'tb_municipio.depa_codi')
+        ->select('tb_municipio.*',"tb_departamento.depa_nomb")
         ->get();
-        return view('comunas.index', ['comunas' => $comunas]);*/
+        return view('municipios.index', ['municipios' => $municipios]);
     }
 
     /**
@@ -65,7 +65,7 @@ class MunicipioController extends Controller
      */
     public function show($id)
     {
-        //
+       
     }
 
     /**
@@ -76,11 +76,7 @@ class MunicipioController extends Controller
      */
     public function edit($id)
     {
-       /* $comuna=Comuna::find($id);
-        $municipios=DB::table('tb_municipio')
-        ->orderBy('muni_nomb')
-        ->get();
-        return view('comunas.edit',['comuna' => $comuna, 'municipios' => $municipios]);*/
+
     }
 
     /**
@@ -92,18 +88,7 @@ class MunicipioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        /*$comuna = Comuna::find($id);
-
-        $comuna->comu_nomb = $request->name;
-        $comuna->muni_codi = $request->code;
-        $comuna->save();
-
-        $comunas = DB::table('tb_comuna')
-        ->join('tb_municipio', 'tb_comuna.muni_codi', '=' ,'tb_municipio.muni_codi')
-        ->select('tb_comuna.*', "tb_municipio.muni_nomb")
-        ->get();
-
-        return view('comunas.index',['comunas' => $comunas]);*/
+      //
     }
 
     /**
@@ -114,14 +99,13 @@ class MunicipioController extends Controller
      */
     public function destroy($id)
     {
-       /* $comuna = Comuna::find($id);
+        $comuna = municipio::find($id);
         $comuna->delete();
 
-        $comunas = DB::table('tb_comuna')
-        ->join('tb_municipio', 'tb_comuna.muni_codi', '=', 'tb_municipio.muni_codi')
-        ->select('tb_comuna.*', 'tb_municipio.muni_nomb')
+        $municipios = DB::table('tb_municipio')
+        ->join('tb_departamento', 'tb_municipio.depa_codi', '=', 'tb_municipio.depa_codi')
+        ->select('tb_municipio.*',"tb_departamento.depa_nomb")
         ->get();
-
-        return view('comunas.index', ['comunas'  => $comunas]);*/
+        return view('municipios.index', ['municipios' => $municipios]);
     }
 }
