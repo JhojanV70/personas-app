@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\departamento;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Query\Builder;
 
@@ -15,11 +16,8 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $municipios = DB::table('tb_municipio')
-        ->join('tb_departamento', 'tb_municipio.depa_codi', '=' , 'tb_departamento.depa_codi')
-        ->select('tb_municipio.*', "tb_departamento.depa_nomb")
-        ->get();
-        return view('municipios.menu', ['municipios' => $municipios]);
+        $departamentos=departamento::all();
+        return view('municipios.menu', ['departamentos' => $departamentos]);
     }
 
     /**

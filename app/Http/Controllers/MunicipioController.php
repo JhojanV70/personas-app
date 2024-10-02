@@ -22,9 +22,6 @@ class MunicipioController extends Controller
        ->select('tb_municipio.*', "tb_departamento.depa_nomb")
        ->get();
        return view('municipios.index', ['municipios' => $municipios ]);
-
-       return view('municipios.menu', ['municipios' => $municipios]);
-
     }
 
     /**
@@ -34,7 +31,10 @@ class MunicipioController extends Controller
      */
     public function create()
     {
-        //
+        $municipios = DB::table('tb_municipio')
+        ->orderBy('muni_nomb')
+        ->get();
+        return view('municipios.new', ['municipios'=>$municipios]);
     }
 
     /**
@@ -45,7 +45,16 @@ class MunicipioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       /* $comuna = new departamento();
+        $comuna->comu_nomb=$request->name;
+        $comuna->muni_codi=$request->code;   
+        $comuna->save();
+ 
+        $comunas = DB::table('tb_comuna')
+        ->join('tb_municipio', 'tb_comuna.muni_codi', '=', 'tb_municipio.muni_codi')
+        ->select('tb_comuna.*',"tb_municipio.muni_nomb")
+        ->get();
+        return view('comunas.index', ['comunas' => $comunas]);*/
     }
 
     /**
@@ -67,7 +76,11 @@ class MunicipioController extends Controller
      */
     public function edit($id)
     {
-        //
+       /* $comuna=Comuna::find($id);
+        $municipios=DB::table('tb_municipio')
+        ->orderBy('muni_nomb')
+        ->get();
+        return view('comunas.edit',['comuna' => $comuna, 'municipios' => $municipios]);*/
     }
 
     /**
@@ -79,7 +92,18 @@ class MunicipioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        /*$comuna = Comuna::find($id);
+
+        $comuna->comu_nomb = $request->name;
+        $comuna->muni_codi = $request->code;
+        $comuna->save();
+
+        $comunas = DB::table('tb_comuna')
+        ->join('tb_municipio', 'tb_comuna.muni_codi', '=' ,'tb_municipio.muni_codi')
+        ->select('tb_comuna.*', "tb_municipio.muni_nomb")
+        ->get();
+
+        return view('comunas.index',['comunas' => $comunas]);*/
     }
 
     /**
@@ -90,6 +114,14 @@ class MunicipioController extends Controller
      */
     public function destroy($id)
     {
-        //
+       /* $comuna = Comuna::find($id);
+        $comuna->delete();
+
+        $comunas = DB::table('tb_comuna')
+        ->join('tb_municipio', 'tb_comuna.muni_codi', '=', 'tb_municipio.muni_codi')
+        ->select('tb_comuna.*', 'tb_municipio.muni_nomb')
+        ->get();
+
+        return view('comunas.index', ['comunas'  => $comunas]);*/
     }
 }
