@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>BD De personas</title>
+    <title>Trabajo Municipios</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Bootstrap CSS -->
     <link
@@ -18,31 +15,35 @@
     />
   </head>
   <body>
-    <div class="p-5 mb-4 text-bg-dark container-fluid">
-      <div class="container">
-        <h1 class="display-5 fw-bold">TRABAJO MUNICIPIOS</h1>
+    <header class="bg-dark text-white p-5">
+      <div class="container text-center">
+        <h1 class="display-4 fw-bold">Trabajo Municipios</h1>
+        <p class="lead">Gestiona municipios, departamentos y países fácilmente</p>
+      </div>
+    </header>
+
+    <div class="container my-5">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="mb-0">Listado de Recursos</h2>
+        </div>
+        <div class="card-body">
+          <div class="d-grid gap-2">
+            <a class="btn btn-primary" href="{{ route('municipios.index') }}" role="button">Municipio</a>
+            <a class="btn btn-secondary" href="{{ route('departamentos.index') }}" role="button">Departamento</a>
+            <a class="btn btn-success" href="{{ route('paises.index') }}" role="button">País</a>
+            <a class="btn btn-info" href="{{ route('comunas.index') }}" role="button">Comuna</a>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="container">
-      <div class="card">
-        <div class="card-header">
-          <span class="btn btn-primary btn-lg">Listado de municipio  departamento  pais</span>
-        </div>
-        <div class="card-body">
-          <a class="btn btn-warning" href="{{ route('municipios.index') }}" role="button"
-            >MUNICIPIO</a
-          >
-          <a class="btn btn-warning" href="{{ route('departamentos.index') }}" role="button"
-            >DEPARTAMENTO</a
-          >
-          <a class="btn btn-warning" href="{{ route('paises.index') }}" role="button"
-          >PAIS</a
-        >
-        <a class="btn btn-warning" href="{{ route('comunas.index') }}" role="button">COMUNA</a>
-        </div>
+    <footer class="bg-light text-center py-4">
+      <div class="container">
+        <p class="mb-0">© 2024 Trabajo Municipios. Todos los derechos reservados.</p>
       </div>
-    </div>
+    </footer>
+
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
       integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
