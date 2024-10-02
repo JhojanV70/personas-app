@@ -13,7 +13,7 @@
   <body>
     <div class="container">
         <h1>Edit commune</h1>  
-        <form method="POST" action="{{route('comunas.update', ['comuna' => $comuna->comu_codi])}}">
+        <form method="POST" action="{{route('comunas.update', ['comuna'=>$comuna->comu_codi])}}">
           @method('put')
           @csrf
             <div class="mb-3">
@@ -34,16 +34,16 @@
         <select class="form-select" id="municipality" name="code" required>
             <option selected disabled value="">Choose one...</option>
             @foreach ($municipios as $municipio)
-          @if ($municipio->muni_codi == $comuna->muni_codi)
-          <option selected value="{{$municipio->muni_codi}}">{{$municipio->muni_nomb}}</option>
-          @else
-          <option value="{{$municipio->muni_codi}}">{{$municipio->muni_nomb}}</option>
-
+               @if ($municipio->muni_codi == $comuna->muni_codi)
+                   <option selected value="{{$municipio->muni_codi}}">{{$municipio->muni_nomb}}</option>
+              @else
+                    <option value="{{$municipio->muni_codi}}">{{$municipio->muni_nomb}}</option>
+              @endif
             @endforeach
          </select>
             <div class="mt-3">
-           <button type="submit" class="btn btn-primary">Save</button>
-           <a href="{{route('comunas.index')}}" class="btn btn-warning"></a>
+           <button type="submit" class="btn btn-primary">update</button>
+           <a href="{{route('comunas.index')}}" class="btn btn-warning">cancel</a>
             </div>
           </form>
     </div>

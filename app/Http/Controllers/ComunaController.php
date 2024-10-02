@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Comuna;
-use App\Models\Municipio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Query\Builder;
+
 
 class ComunaController extends Controller
 {
@@ -98,13 +98,13 @@ class ComunaController extends Controller
     {
         $comuna = Comuna::find($id);
 
-        $comuna->comu_comb = $request->name;
+        $comuna->comu_nomb = $request->name;
         $comuna->muni_codi = $request->code;
         $comuna->save();
 
         $comunas = DB::table('tb_comuna')
         ->join('tb_municipio', 'tb_comuna.muni_codi', '=' ,'tb_municipio.muni_codi')
-        ->select('tb_comuna.*', "tb_municipio.muni.nomb")
+        ->select('tb_comuna.*', "tb_municipio.muni_nomb")
         ->get();
 
         return view('comunas.index',['comunas' => $comunas]);
@@ -119,12 +119,13 @@ class ComunaController extends Controller
      */
     public function destroy($id)
     {
+
        $comuna=Comuna::find($id);
        $comuna->delete();
 
        $comunas = DB::table('tb_comuna')
        ->join('tb_municipio', 'tb_comuna.muni_codi', '=' ,'tb_municipio.muni_codi')
-       ->select('tb_comuna.*', "tb_municipio.muni.nomb")
+       ->select('tb_comuna.*', "tb_municipio.muni_nomb")
        ->get();
         
        return view('comunas.index',['comunas' => $comunas]);

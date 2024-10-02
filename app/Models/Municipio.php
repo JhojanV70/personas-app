@@ -9,6 +9,6 @@ class Municipio extends Model
 {
     use HasFactory;
     protected $table = "tb_municipio";
-    protected $primarykey = 'muni_codi';
+    protected $primaryKey = 'muni_codi';
     public $timestamps = false;
 }

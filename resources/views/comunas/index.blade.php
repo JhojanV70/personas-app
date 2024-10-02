@@ -33,7 +33,7 @@
             <a href="{{route('comunas.edit',['comuna'=>$comuna->comu_codi]) }}"
               class="btn btn-info">edit</a></li>
 
-            <form action="{{route('comunas.destroy',['comuna'=>$comuna->comu_codi]) }}"
+            <form action="{{route('comunas.destroy',['comuna'=>$comuna->comu_codi])}}"
               method="POST" style="display: inline-block">
               @method('delete')
               @csrf
