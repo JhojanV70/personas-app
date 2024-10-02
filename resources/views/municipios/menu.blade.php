@@ -33,7 +33,7 @@
           <a class="btn btn-warning" href="{{ route('municipios.index') }}" role="button"
             >Área Triángulo</a
           >
-          <a class="btn btn-warning" href="html/tabla.html" role="button"
+          <a class="btn btn-warning" href="{{ route('departamentos.index') }}" role="button"
             >Tabla de Multiplicar</a
           >
         </div>
