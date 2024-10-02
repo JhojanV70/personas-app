@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class departamento extends Model
 {
     use HasFactory;
-    protected $table = "tb_departamento";
+    protected $table = 'tb_departamento';
     protected $primarykey = 'depa_codi';
-    public $timestramps=false;
+    public $timestamps=false;
 }

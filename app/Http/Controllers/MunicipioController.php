@@ -47,11 +47,11 @@ class MunicipioController extends Controller
     {
         $municipio = new municipio();
         $municipio->muni_nomb=$request->name;
-        $municipio->muni_codi=$request->code;   
+        $municipio->depa_codi=$request->code;   
         $municipio->save();
  
         $municipios = DB::table('tb_municipio')
-        ->join('tb_departamento', 'tb_municipio.depa_codi', '=', 'tb_municipio.depa_codi')
+        ->join('tb_departamento', 'tb_municipio.depa_codi', '=', 'tb_departamento.depa_codi')
         ->select('tb_municipio.*',"tb_departamento.depa_nomb")
         ->get();
         return view('municipios.index', ['municipios' => $municipios]);
@@ -76,7 +76,11 @@ class MunicipioController extends Controller
      */
     public function edit($id)
     {
-
+        $municipio=municipio::find($id);
+        $municipios=DB::table('tb_municipio')
+        ->orderBy('muni_nomb')
+        ->get();
+        return view('municipios.edit',['municipio' => $municipio, 'municipios' => $municipios]);
     }
 
     /**
@@ -88,7 +92,18 @@ class MunicipioController extends Controller
      */
     public function update(Request $request, $id)
     {
-      //
+        $municipio=municipio::find($id);
+
+        $municipio->muni_nomb=$request->name;
+        $municipio->depa_codi=$request->code;
+        $municipio->save();
+
+        $municipios = DB::table('tb_municipio')
+        ->join('tb_departamento', 'tb_municipio.depa_codi', '=', 'tb_departamento.depa_codi')
+        ->select('tb_municipio.*',"tb_departamento.depa_nomb")
+        ->get();
+
+        return view('municipios.index',['municipios' => $municipios]);
     }
 
     /**
@@ -99,11 +114,11 @@ class MunicipioController extends Controller
      */
     public function destroy($id)
     {
-        $comuna = municipio::find($id);
-        $comuna->delete();
+        $municipio = municipio::find($id);
+        $municipio->delete();
 
         $municipios = DB::table('tb_municipio')
-        ->join('tb_departamento', 'tb_municipio.depa_codi', '=', 'tb_municipio.depa_codi')
+        ->join('tb_departamento', 'tb_municipio.depa_codi', '=', 'tb_departamento.depa_codi')
         ->select('tb_municipio.*',"tb_departamento.depa_nomb")
         ->get();
         return view('municipios.index', ['municipios' => $municipios]);
