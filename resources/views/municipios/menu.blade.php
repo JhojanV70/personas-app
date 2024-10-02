@@ -20,24 +20,24 @@
   <body>
     <div class="p-5 mb-4 text-bg-dark container-fluid">
       <div class="container">
-        <h1 class="display-5 fw-bold">TRABAJO NUMERO 2</h1>
+        <h1 class="display-5 fw-bold">POO</h1>
       </div>
     </div>
 
     <div class="container">
       <div class="card">
         <div class="card-header">
-          <span class="btn btn-primary btn-lg">Listado de municipio  departamento  pais</span>
+          <span class="btn btn-primary btn-lg">Listado de Programas</span>
         </div>
         <div class="card-body">
           <a class="btn btn-warning" href="{{ route('municipios.index') }}" role="button"
-            >MUNICIPIO</a
+            >Área Triángulo</a
           >
           <a class="btn btn-warning" href="{{ route('departamentos.index') }}" role="button"
-            >DEPARTAMENTO</a
+            >Tabla de Multiplicar</a
           >
-          <a class="btn btn-warning" href="{{ route('paises.index') }}" role="button"
-          >PAIS</a
+          <a class="btn btn-warning" href="{{ route('departamentos.index') }}" role="button"
+          >Tabla de Multiplicar</a
         >
         </div>
       </div>
