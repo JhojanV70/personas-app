@@ -33,7 +33,7 @@
         <select class="form-select" id="municipality" name="code" required>
             <option selected disabled value="">Choose one...</option>
             @foreach ($paises as $pais)
-            <option value="{{$pais->pais_capi}}">{{$pais->pais_codi}}</option>
+            <option value="{{$pais->pais_codi}}">{{$pais->pais_nomb}}</option>
             @endforeach
          </select>
             <div class="mt-3">
