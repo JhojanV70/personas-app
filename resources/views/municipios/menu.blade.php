@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Tabla de Multiplicar</title>
+    <title>BD De personas</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -20,7 +20,7 @@
   <body>
     <div class="p-5 mb-4 text-bg-dark container-fluid">
       <div class="container">
-        <h1 class="display-5 fw-bold">TRABAJO NUMERO 2</h1>
+        <h1 class="display-5 fw-bold">TRABAJO MUNICIPIOS</h1>
       </div>
     </div>
 
@@ -39,6 +39,7 @@
           <a class="btn btn-warning" href="{{ route('paises.index') }}" role="button"
           >PAIS</a
         >
+        <a class="btn btn-warning" href="{{ route('comunas.index') }}" role="button">COMUNA</a>
         </div>
       </div>
     </div>
