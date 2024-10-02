@@ -35,7 +35,7 @@
                 
                 @foreach ($departamentos as $departamentoso)
                    @if ($departamentoso->depa_codi == $departamento->depa_codi)
-                       <option selected value="{{$departamentoso->depa_codi}}">{{$departamentoso->depa_nomb}}</option>
+                       <option selected value="{{$departamentoso->depa_codi}}">{{$departamentoso->pais_codi}}</option>
                   @else
                         <option value="{{$departamentoso->depa_codi}}">{{$departamentoso->pais_codi}}</option>
                   @endif
@@ -43,7 +43,7 @@
          </select>
             <div class="mt-3">
            <button type="submit" class="btn btn-primary">Save</button>
-           <a href="{{route('municipios.index')}}" class="btn btn-warning">Volver</a>
+           <a href="{{route('departamentos.index')}}" class="btn btn-warning">Volver</a>
             </div>
           </form>
     </div>

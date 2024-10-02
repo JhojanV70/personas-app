@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\PaisController;
 use App\Http\Controllers\DepartamentoController;
 use App\Http\Controllers\MunicipioController;
 use App\Http\Controllers\MenuController;
@@ -33,3 +34,7 @@ Route::get('/departamentos/create',[DepartamentoController::class, 'create'])->n
 Route::delete('/departamentos/{departamento}',[DepartamentoController::class, 'destroy'])->name('departamentos.destroy');
 Route::put('/departamentos/{departamento}',[DepartamentoController::class, 'update'])->name('departamentos.update');
 Route::get('/departamentos/{departamento}/edit',[DepartamentoController::class, 'edit'])->name('departamentos.edit');
+
+
+Route::get('/paises',[PaisController::class, 'index'])->name('paises.index');
+

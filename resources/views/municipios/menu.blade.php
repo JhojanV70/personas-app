@@ -36,6 +36,9 @@
           <a class="btn btn-warning" href="{{ route('departamentos.index') }}" role="button"
             >Tabla de Multiplicar</a
           >
+          <a class="btn btn-warning" href="{{ route('departamentos.index') }}" role="button"
+          >Tabla de Multiplicar</a
+        >
         </div>
       </div>
     </div>

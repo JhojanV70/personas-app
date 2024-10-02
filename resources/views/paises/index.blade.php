@@ -12,33 +12,24 @@
   <body>
     <div class="container">
       <h1>Listado de comunas</h1>
-      <a href="{{ route('departamentos.create') }}" class="btn btn-success">Add</a>
+      <a href="{{ route('municipios.create') }}" class="btn btn-success">Add</a>
       <a href="{{route('municipios.menu')}}" class="btn btn-warning">Volver</a>
     <table class="table">
    <thead>
      <tr>
      <th scope="col">Code</th>
-     <th scope="col">Departamento</th>
-     <th scope="col">pais_codi</th>
+     <th scope="col">Municipality</th>
+     <th scope="col">depa_codi</th>
      <th scope="col">Actions</th>
       </tr>
    </thead>
     <tbody>
-      @foreach ($departamentos as $departamento)
+      @foreach ($paises as $pais)
         <tr>
-          <th scope="row">{{$departamento->depa_codi}}</th>
-          <td>{{ $departamento->depa_nomb }}</td>
-          <td>{{ $departamento->pais_codi }}</td>
-          <td>       
-            <a href="{{route('departamentos.edit',['departamento'=>$departamento->depa_codi]) }}"
-            class="btn btn-info">edit</a></li>
-            <form action="{{route('departamentos.destroy',['departamento'=>$departamento->depa_codi])}}"
-            method="POST" style="display: inline-block">
-            @method('delete')
-            @csrf
-            <input class="btn btn-danger" type="submit" value="delete">
-          </form>
-          </td>
+          <th scope="row">{{$pais->pais_codi}}</th>
+          <td>{{ $pais->pais_nomb }}</td>
+          <td>{{ $pais->pais_capi }}</td>
+          <td><span>Actions</span></td>
           </tr>
       @endforeach
         </tbody>
