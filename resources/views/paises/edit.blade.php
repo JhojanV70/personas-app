@@ -12,36 +12,42 @@
   </head>
   <body>
     <div class="container">
-        <h1>Add comuna</h1>  
-        <form method="POST" action="{{route('departamentos.store')}}">
-         @csrf
+        <h1>Edit commune</h1>  
+        <form method="POST" action="{{route('paises.update',['pais'=>$pais->pais_codi])}}">
+          @method('put')
+          @csrf
             <div class="mb-3">
-              <label for="id" class="form-label">Code</label>
-              <input type="text" class="form-control" id="id" aria-describedby="idHelp" name="id" 
-                   disabled="disabled">
-              <div id="idHelp" class="form-text">Commune code</div>
+              <label for="codigo" class="form-label">Id</label>
+              <input type="text" class="form-control" id="id" aria-describedby="codigoHelp" name="id" 
+                   disabled="disabled" values="{{$pais->pais_codi}}">
+              <div id="codigoHelp" class="form-text">Commune Id</div>
             </div>
-
 
             <div class="mb-3">
               <label for="name" class="form-label">Commune</label>
-              <input type="text" required class="form-control" id="name"  aria-describedby="nameHelp"
-                name="name" placeholder="Comuna name">
+              <input type="text" required class="form-control" id="name" placeholder="Commune name"
+                name="name" value="{{$pais->pais_nomb}}">
             </div>
-
-        <label for="municipality">municipality</label>
-        <select class="form-select" id="municipality" name="code" required>
-            <option selected disabled value="">Choose one...</option>
-            @foreach ($departamentos as $departamento)
-            <option value="{{$departamento->depa_codi}}">{{$departamento->depa_nomb}}</option>
-            @endforeach
+            <label for="municipality">municipality</label>
+            <select class="form-select" id="municipality" name="code" required>
+                <option selected disabled value="">Choose one...</option>
+                
+                @foreach ($paises as $paiso)
+                   @if ($paiso->pais_codi == $pais->pais_codi)
+                       <option selected value="{{$paiso->pais_codi}}">{{$paiso->pais_nomb}}</option>
+                  @else
+                        <option value="{{$paiso->pais_codi}}">{{$paiso->pais_nomb}}</option>
+                  @endif
+                @endforeach
          </select>
             <div class="mt-3">
            <button type="submit" class="btn btn-primary">Save</button>
-           <a href="{{route('departamentos.index')}}" class="btn btn-warning">Volver</a>
+           <a href="{{route('paises.index')}}" class="btn btn-warning">Volver</a>
             </div>
           </form>
     </div>
+
+
 
     <!-- Optional JavaScript; choose one of the two! -->
 
